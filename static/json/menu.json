@@ -1,0 +1,51 @@
+[
+    {
+        "icon": "ios-paper",
+        "id": "page-login",
+        "name": "登录页",
+        "parentId": "0",
+        "sub": [],
+        "url": "login.html"
+    },
+    {
+        "icon": "ios-list-outline",
+        "id": "page-tree",
+        "name": "树形控件",
+        "parentId": "0",
+        "sub": [],
+        "url": "page/tree/tree.html"
+    },
+    {
+        "icon": "grid",
+        "id": "page-datatable",
+        "name": "数据表格",
+        "parentId": "0",
+        "sub": [
+            {
+                "icon": "grid",
+                "id": "page-datatable-simple",
+                "name": "数据表格（简单）",
+                "parentId": "page-datatable",
+                "sub": [],
+                "url": "page/datatable/page-datatable.html"
+            },
+            {
+                "icon": "grid",
+                "id": "page-datatable-scroll",
+                "name": "数据表格（固定列+滚动）",
+                "parentId": "page-datatable",
+                "sub": [],
+                "url": "page/datatable/page-datatable-scroll.html"
+            }
+        ],
+        "url": null
+    },
+	{
+        "icon": "ios-toggle-outline",
+        "id": "logout",
+        "name": "退出",
+        "parentId": "0",
+        "sub": [],
+        "url": "logout"
+    }
+]

@@ -1,0 +1,73 @@
+{
+  "name": "superstarui-lite",
+  "version": "1.0.0",
+  "description": "A UI framework based on jQuery, jQuery UI, Vue & iViewUI",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "dependencies": {
+    "gulp-uglify": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "expose-loader": "^0.7.3",
+    "iview": "^2.0.0-rc.18",
+    "vue": "^2.3.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2015-loose": "^8.0.0",
+    "clean-webpack-plugin": "^0.1.16",
+    "console-polyfill": "^0.3.0",
+    "css-loader": "^0.28.4",
+    "css-purge": "^1.1.1",
+    "cssnano": "^3.10.0",
+    "es3ify-loader": "^0.2.0",
+    "es5-shim": "^4.5.9",
+    "es6-promise": "^4.1.1",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^0.11.2",
+    "gulp-base64": "^0.1.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssfont64": "0.0.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-exec": "^2.1.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "html-webpack-plugin": "^2.29.0",
+    "jquery": "^1.12.4",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.4",
+    "postcss-import": "^10.0.0",
+    "postcss-loader": "^2.0.6",
+    "run-sequence": "^1.2.2",
+    "server-mock": "^1.1.3",
+    "style-loader": "^0.18.2",
+    "typescript": "^2.5.0-dev.20170712",
+    "url-loader": "^0.5.9",
+    "vue": "^2.3.4",
+    "vue-html-loader": "^1.2.4",
+    "vue-loader": "^13.0.0",
+    "vue-router": "^2.7.0",
+    "vue-style-loader": "^3.0.1",
+    "vue-template-compiler": "^2.3.4",
+    "webpack": "^3.0.0",
+    "webpack-merge": "^4.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itpretty/superstarui-lite"
+  },
+  "author": "Riting LIU, liuriting@gmail.com",
+  "license": "MIT"
+}

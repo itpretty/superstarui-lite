@@ -1,0 +1,100 @@
+[
+    {
+        "icon": "ios-paper",
+        "id": "page-login",
+        "name": "登录页",
+        "parentId": "0",
+        "sub": [],
+        "url": "/ffzx-web/asset/v2/ui/page/login.html"
+    },
+	{
+        "icon": "ios-people",
+        "id": "page-dashboard",
+        "name": "Dashboard",
+        "parentId": "0",
+        "sub": [],
+        "url": "/ffzx-web/asset/v2/ui/page/dashboard.html"
+    },
+    {
+        "icon": "ios-browsers-outline",
+        "id": "page-elements",
+        "name": "页面元素",
+        "parentId": "0",
+        "sub": [],
+        "url": "/ffzx-web/asset/v2/ui/page/elements.html"
+    },
+    {
+        "icon": "stats-bars",
+        "id": "page-main",
+        "name": "主要页面",
+        "parentId": "0",
+        "sub": [
+			{
+                "icon": "",
+                "id": "page-list-search",
+                "name": "列表查询",
+                "parentId": "page-main",
+                "sub": [ ],
+                "url": "/ffzx-web/asset/v2/ui/page/main-list-search.html"
+            },
+			{
+                "icon": "",
+                "id": "page-list-edit",
+                "name": "列表编辑",
+                "parentId": "page-main",
+                "sub": [ ],
+                "url": "/ffzx-web/asset/v2/ui/page/main-list-edit.html"
+            }
+		],
+        "url": null
+    },
+    {
+        "icon": "grid",
+        "id": "page-datatable",
+        "name": "数据表格（简单）",
+        "parentId": "0",
+        "sub": [],
+        "url": "page/datatable/page-datatable.html"
+    },
+    {
+        "icon": "grid",
+        "id": "page-datatable-scroll",
+        "name": "数据表格（固定列+滚动）",
+        "parentId": "0",
+        "sub": [],
+        "url": "page/datatable/page-datatable-scroll.html"
+    },
+	{
+        "icon": "ios-toggle-outline",
+        "id": "framework-superstarui",
+        "name": "SuperStar UI",
+        "parentId": "0",
+        "sub": [],
+        "url": "/ffzx-web/asset/v2/index.html"
+    },
+    {
+        "icon": "ios-paper-outline",
+        "id": "page-other",
+        "name": "其它页面",
+        "parentId": "0",
+        "sub": [
+			{
+                "icon": "",
+                "id": "page-other-404",
+                "name": "错误页面 404",
+                "parentId": "page-other-error-404",
+                "sub": [ ],
+                "url": "/ffzx-web/asset/v2/ui/page/other-404.html"
+            },
+			{
+                "icon": "",
+                "id": "page-other-500",
+                "name": "错误页面 500",
+                "parentId": "page-other-error-500",
+                "sub": [ ],
+                "url": "/ffzx-web/asset/v2/ui/page/other-500.html"
+            }
+		],
+        "url": null
+    }
+]

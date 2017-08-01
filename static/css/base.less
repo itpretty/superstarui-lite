@@ -1,0 +1,412 @@
+// Global
+html, body{height: 100%;overflow: hidden;margin:0;padding:0;}
+body{ min-width:1000px; }
+
+// hide iviewui tags before rendering is done
+i-form,Form-item,Row,i-col,i-button,Icon,i-input,Radio-group,Radio,
+Checkbox-group,Checkbox,i-switch,i-table,i-select,i-option,Slider,
+Date-picker,Time-picker,Cascader,Transfer,Input-number,Rate,Upload,
+Alert,Card,Modal,i-progress,Badge,Collapse,Timeline,Timeline-item,
+Tag,Tooltip,Poptip,Carousel,Carousel-item,Tree,i-menu,Tabs,Tab-pane,
+Dropdown,Dropdown-menu,Dropdown-item,Page,Breadcrumb,Breadcrumb-item,
+Steps,Step,i-circle,Affix,Back-top,Spin
+    {visibility: hidden;}
+
+.wrapper-pagination{
+    padding:1.5em;
+    text-align: right;
+    .ivu-page{
+        float:right;
+    }
+    .ivu-icon-ios-refresh-empty{
+        font-size: 18px;
+        line-height: 30px;
+    }
+}
+
+.wrapper-page-inner{
+    position: relative;
+    height:100%;
+    .page-inner{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 30px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        z-index: 10;
+        overflow: auto;
+        .ivu-modal-close{
+            right: 18px;
+            z-index: 11;
+        }
+        .page-inner-content{
+            padding:15px;
+            height: 100%;
+        }
+    }
+}
+
+//.loading{background:url("../img/loading.gif") no-repeat 12px 15px;}
+.ivu-form{max-width:700px;}
+
+.ui-tabs-panel {     
+    .ivu-form-inline{
+        max-width:100%;
+        padding:1em;
+        .ivu-form-item {
+            margin-bottom: 5px;
+            .ivu-form-item-label{
+                font-weight: bold;
+            }
+        }
+        .ivu-form-item-content{
+            display: inline-block;
+            .ivu-date-picker{
+                width:162px;
+            }
+        }
+    }
+}
+
+.ivu-form .ivu-form-item-label{
+    font-weight: bold;
+}
+
+.ivu-select-dropdown-list{
+    .ivu-select{
+        display:none;
+    }
+}
+
+.ivu-form-item-error-tip{
+    color:#ff9900;
+}
+.ivu-form-item-error .ivu-input-group-append, 
+.ivu-form-item-error .ivu-input-group-prepend,
+.ivu-form-item-error .ivu-input,
+.ivu-form-item-error .ivu-input:hover,
+.ivu-form-item-error .ivu-input:focus{
+    border-color:#ff9900;
+}
+
+// Login
+.wrapper-login{
+	position: relative;
+    background: center bottom no-repeat;
+    background-size:cover;
+    height: 100%;
+    overflow: hidden;
+    > canvas {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+    }
+    #pageLogin{
+        text-align: center;
+        margin-top: 12%;
+        .ivu-form{
+            max-width: 100%;
+            margin-top: 80px;
+        }
+        .ivu-form-item:last-child{margin-right: 0;}
+        .ivu-checkbox-wrapper{color:#fff;}
+    }
+    .ss-logo{text-align: center;}
+    .ss-logo img{width:160px;}
+}
+
+// Index
+.ss{
+    .wrapper-page{height:100%;}
+    .layout{
+        //border: 1px solid #d7dde4;
+        background: #f5f7f9;
+        position: relative;
+        //border-radius: 4px;
+        overflow: hidden;
+        height:100%;
+        > .ivu-row-flex{
+            height:100%;
+        }
+        .layout-right{
+            transition: width .2s ease-in-out;            
+            position: relative;
+            height: 100%;
+            padding-bottom: 65px;
+            width:auto;
+            position:absolute;
+            top:0;
+            right:0;
+            bottom:0;
+            left:240px;
+            .btn-logout{
+                float: right;
+                margin-top: 12px;
+                margin-right: 10px;
+            }
+        }
+    }
+    .btn-toggle{height:62px;padding-top: 0;padding-bottom: 0;border:0;background: none;}
+    .ui-widget.ui-widget-content{border: 1px solid #d2d2d2;}
+    .layout-breadcrumb{
+        height: 100%;
+        padding: 15px 15px 55px;
+    }
+    .layout-content{
+        overflow: hidden;
+        background: #fff;
+        border-radius: 4px;
+        height:100%;        
+    }
+    .layout-content-main{
+        padding: 10px;
+    }
+    .layout-copy{
+        text-align: center;
+        padding: 10px 0 20px;
+        color: #9ea7b4;
+        position: absolute;
+        right:0;
+        bottom:0;
+        left:0;
+    }
+    .layout-menu-left{
+        background: #00386F;
+        height:100%;
+        width:240px;
+        .ivu-menu-dark.ivu-menu-vertical .ivu-menu-item, .ivu-menu-dark.ivu-menu-vertical .ivu-menu-submenu-title
+        {background: #00386F;}
+        
+        .ztree{padding: 0;}
+        .ztree *{font-size: 14px;}
+        .ztree li ul{ margin:0; padding:0}
+        .ztree li {line-height:30px;}
+        .ztree li a {width:100%;height:40px;padding-top: 5px;color:rgba(255,255,255,.7);}
+        .ztree li a:hover {text-decoration:none; background-color: #2d8cf0;opacity:1;color:rgba(255,255,255,1);}
+        .ztree li a span.button.switch {visibility:hidden}
+        .ztree li > a > span:first-child {margin-left: 30px !important;}
+        .ztree.showIcon li a span.button.switch {visibility:visible}
+        .ztree li a.curSelectedNode {background-color:#F5F7F9;border:0;height:40px;padding-top:5px;opacity: 1;color:#333;}
+        .ztree li span {line-height:30px;}
+        .ztree li span.button {margin-top: -7px;margin-left:15px;}
+        .ztree li span.button.switch {width: 16px;height: 16px;}
+
+        //.ztree li.level0{padding: 1em;}
+        .ztree li a.level0 span {font-size: 120%;font-weight: bold;color:rgba(255,255,255,1);}
+        .ztree li span.button.noline_open,.ztree li span.button.noline_close {background-image:url("ztree/outlook/left_menuForOutLook.png");}
+        .ztree li span.button.switch.level0 {width: 20px; height:20px;margin-top: -2px;}
+        .ztree li span.button.switch.level1 {width: 20px; height:20px;margin-top: -2px;}
+        .ztree li span.button.noline_open {background-position: 0 0;margin-left:15px;}
+        .ztree li span.button.noline_close {background-position: -18px 0;margin-left:15px;}
+        .ztree li span.button.noline_open.level0 {background-position: 0 -18px;}
+        .ztree li span.button.noline_close.level0 {background-position: -18px -18px;}
+        
+    }
+    .layout-header{
+        height: 60px;
+        background: #fff;
+        box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    }
+    .layout-logo-left{
+        width: 100%;
+        height: 30px;
+        text-align: center;
+        //background: #5b6270;
+        //border-radius: 3px;
+        margin: 30px auto;
+        img{
+            height:40px;
+        }
+    }
+    .layout-ceiling-main a{
+        color: #9ba7b5;
+    }
+    .layout-hide-left{
+        .layout-menu-left{display:none;}
+        .layout-text{
+            display: none;
+        }
+        .layout-right{left:0;}
+    }    
+    .ivu-tabs {
+        height:100%;
+        padding-bottom:32px;
+        .ivu-tabs-bar{margin-bottom: 0;border-top-right-radius: 0;}
+        .ivu-tabs-tabpane{border:1px solid #d7dde4;border-top:0;padding:10px;height:100%;background-color:#fff;border-radius: 0 0 4px 4px;}
+        .ivu-tabs-content{height:100%;}
+    }
+    .hideArrow{
+        .ivu-icon-ios-arrow-down{display:none;}
+    }
+    
+    .ui-tabs {
+        height:100%;
+        .ui-tabs-nav{
+            padding:0;
+            border-width:0 0 1px 0;
+            border-radius: 0;
+            .ui-icon{
+                cursor: pointer;
+                position:absolute;
+                right:-2px;
+                display:none;
+                
+            }
+            .ui-icon-close{
+                top:1px;                
+            }            
+            .ui-tabs-tab{                      
+                &:hover{
+                    .ui-icon{
+                        display:block;
+                    }
+                    .ui-icon-arrowrefresh-1-n{
+                        display:none;        
+                    }
+                }
+            }
+            .ui-tabs-active {
+                &:hover{
+                    .ui-icon-arrowrefresh-1-n{                
+                        bottom:0;
+                        right:-3px;
+                        display:block;
+                    }
+                }
+            }
+            .ui-tabs-anchor{
+                padding:.72em 1.2em .5em;
+            }
+        }
+        .ui-tabs-panel{
+            padding: 2px 0;            
+            position: absolute;
+            bottom: 2px;
+            top: 35px;
+            right: 2px;
+            left: 2px;
+            overflow-y:auto;
+            .ivu-page-item-active a{
+                color:#fff;
+            }
+        }
+    }
+
+    .treeLevel{
+        display:inline-block; 
+        > button{padding-left:0;}
+        .tl-0{margin:0 1em 0 0.2em;}
+        .tl-1{margin:0 1em 0 3em;}
+        .tl-2{margin:0 1em 0 6em;}
+        .tl-3{margin:0 1em 0 9em;}
+    }
+
+    .btn-reload{
+        margin-right: 1em;
+    }
+    .ivu-modal-body{
+        .ztree {margin:0; padding:5px; color:#333}
+        .ztree li{padding:0; margin:0; list-style:none; line-height:17px; text-align:left; white-space:nowrap; outline:0}
+        .ztree li ul{ margin:0; padding:0 0 0 18px}
+        .ztree li ul.line{ background:url(ztree/metroStyle/img/line_conn.png) 0 0 repeat-y;}
+
+        .ztree li a {padding-right:3px; margin:0; cursor:pointer; height:21px; color:#333; background-color: transparent; text-decoration:none; vertical-align:top; display: inline-block}
+        .ztree li a:hover {text-decoration:underline}
+        .ztree li a.curSelectedNode {padding-top:0px; background-color:#e5e5e5; color:black; height:21px; opacity:0.8;}
+        .ztree li a.curSelectedNode_Edit {padding-top:0px; background-color:#e5e5e5; color:black; height:21px; border:1px #666 solid; opacity:0.8;}
+        .ztree li a.tmpTargetNode_inner {padding-top:0px; background-color:#aaa; color:white; height:21px; border:1px #666 solid;
+        opacity:0.8; filter:alpha(opacity=80)}
+        .ztree li a.tmpTargetNode_prev {}
+        .ztree li a.tmpTargetNode_next {}
+        .ztree li a input.rename {height:14px; width:80px; padding:0; margin:0;
+        font-size:12px; border:1px #585956 solid; *border:0px}
+        .ztree li span {line-height:21px; margin-right:2px}
+        .ztree li span.button {line-height:0; margin:0; padding: 0; width:21px; height:21px; display: inline-block; vertical-align:middle;
+        border:0 none; cursor: pointer;outline:none;
+        background-color:transparent; background-repeat:no-repeat; background-attachment: scroll;
+        background-image:url("ztree/metroStyle/img/metro.png");}
+
+        .ztree li span.button.chk {width:13px; height:13px; margin:0 2px; cursor: auto}
+        .ztree li span.button.chk.checkbox_false_full {background-position: -5px -5px;}
+        .ztree li span.button.chk.checkbox_false_full_focus {background-position: -5px -26px;}
+        .ztree li span.button.chk.checkbox_false_part {background-position: -5px -48px;}
+        .ztree li span.button.chk.checkbox_false_part_focus {background-position: -5px -68px;}
+        .ztree li span.button.chk.checkbox_false_disable {background-position: -5px -89px;}
+        .ztree li span.button.chk.checkbox_true_full {background-position: -26px -5px;}
+        .ztree li span.button.chk.checkbox_true_full_focus {background-position: -26px -26px;}
+        .ztree li span.button.chk.checkbox_true_part {background-position: -26px -48px;}
+        .ztree li span.button.chk.checkbox_true_part_focus {background-position: -26px -68px;}
+        .ztree li span.button.chk.checkbox_true_disable {background-position: -26px -89px;}
+        .ztree li span.button.chk.radio_false_full {background-position: -47px -5px;}
+        .ztree li span.button.chk.radio_false_full_focus {background-position: -47px -26px;}
+        .ztree li span.button.chk.radio_false_part {background-position: -47px -47px;}
+        .ztree li span.button.chk.radio_false_part_focus {background-position: -47px -68px;}
+        .ztree li span.button.chk.radio_false_disable {background-position: -47px -89px;}
+        .ztree li span.button.chk.radio_true_full {background-position: -68px -5px;}
+        .ztree li span.button.chk.radio_true_full_focus {background-position: -68px -26px;}
+        .ztree li span.button.chk.radio_true_part {background-position: -68px -47px;}
+        .ztree li span.button.chk.radio_true_part_focus {background-position: -68px -68px;}
+        .ztree li span.button.chk.radio_true_disable {background-position: -68px -89px;}
+
+        .ztree li span.button.switch {width:21px; height:21px}
+        .ztree li span.button.root_open{background-position:-105px -63px}
+        .ztree li span.button.root_close{background-position:-126px -63px}
+        .ztree li span.button.roots_open{background-position: -105px 0;}
+        .ztree li span.button.roots_close{background-position: -126px 0;}
+        .ztree li span.button.center_open{background-position: -105px -21px;}
+        .ztree li span.button.center_close{background-position: -126px -21px;}
+        .ztree li span.button.bottom_open{background-position: -105px -42px;}
+        .ztree li span.button.bottom_close{background-position: -126px -42px;}
+        .ztree li span.button.noline_open{background-position: -105px -84px;}
+        .ztree li span.button.noline_close{background-position: -126px -84px;}
+        .ztree li span.button.root_docu{ background:none;}
+        .ztree li span.button.roots_docu{background-position: -84px 0;}
+        .ztree li span.button.center_docu{background-position: -84px -21px;}
+        .ztree li span.button.bottom_docu{background-position: -84px -42px;}
+        .ztree li span.button.noline_docu{ background:none;}
+
+        .ztree li span.button.ico_open{margin-right:2px; background-position: -147px -21px; vertical-align:top; *vertical-align:middle}
+        .ztree li span.button.ico_close{margin-right:2px; margin-right:2px; background-position: -147px 0; vertical-align:top; *vertical-align:middle}
+        .ztree li span.button.ico_docu{margin-right:2px; background-position: -147px -42px; vertical-align:top; *vertical-align:middle}
+        .ztree li span.button.edit {margin-left:2px; margin-right: -1px; background-position: -189px -21px; vertical-align:top; *vertical-align:middle}
+        .ztree li span.button.edit:hover {
+        background-position: -168px -21px;
+        }
+        .ztree li span.button.remove {margin-left:2px; margin-right: -1px; background-position: -189px -42px; vertical-align:top; *vertical-align:middle}
+        .ztree li span.button.remove:hover {
+        background-position: -168px -42px;
+        }
+        .ztree li span.button.add {margin-left:2px; margin-right: -1px; background-position: -189px 0; vertical-align:top; *vertical-align:middle}
+        .ztree li span.button.add:hover {
+        background-position: -168px 0;
+        }
+        .ztree li span.button.ico_loading{margin-right:2px; background:url(ztree/metroStyle/img/loading.gif) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+
+        ul.tmpTargetzTree {background-color:#FFE6B0; opacity:0.8; filter:alpha(opacity=80)}
+
+        span.tmpzTreeMove_arrow {width:16px; height:21px; display: inline-block; padding:0; margin:2px 0 0 1px; border:0 none; position:absolute;
+            background-color:transparent; background-repeat:no-repeat; background-attachment: scroll;
+            background-position:-168px -84px; background-image:url("ztree/metroStyle/img/metro.png");}
+
+        ul.ztreeul.ztreeDragUL {margin:0; padding:0; position:absolute; width:auto; height:auto;overflow:hidden; background-color:#cfcfcf; border:1px #00B83F dotted; opacity:0.8; filter:alpha(opacity=80)}
+        .ztreeMask {z-index:10000; background-color:#cfcfcf; opacity:0.0; filter:alpha(opacity=0); position:absolute}
+
+        .ztree{            
+            height: 450px;
+            overflow-y: auto;
+        }
+    }
+
+    .ivu-form-item-content{
+        .edui-editor div{line-height: normal !important;}        
+    }
+    .edui-default .edui-colorpicker-nocolor{
+        height:auto;
+    }
+}
