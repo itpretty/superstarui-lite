@@ -14214,6 +14214,9 @@ Spin {
 .ui-tabs-panel .ivu-form-inline .ivu-form-item-content .ivu-date-picker {
   width: 162px;
 }
+.ui-tabs-panel img {
+  display: block;
+}
 .ivu-form .ivu-form-item-label {
   font-weight: bold;
 }
@@ -14265,6 +14268,9 @@ Spin {
 }
 .wrapper-login .ss-logo img {
   width: 160px;
+}
+.ss a {
+  transition: none;
 }
 .ss .wrapper-page {
   height: 100%;
@@ -14331,6 +14337,7 @@ Spin {
   background: #00386F;
   height: 100%;
   width: 240px;
+  overflow-y: auto;
 }
 .ss .layout-menu-left .ivu-menu-dark.ivu-menu-vertical .ivu-menu-item,
 .ss .layout-menu-left .ivu-menu-dark.ivu-menu-vertical .ivu-menu-submenu-title {
@@ -14472,11 +14479,16 @@ Spin {
 }
 .ss .ui-tabs {
   height: 100%;
+  overflow: hidden;
+  visibility: hidden;
 }
 .ss .ui-tabs .ui-tabs-nav {
   padding: 0;
   border-width: 0 0 1px 0;
   border-radius: 0;
+  width: 5000px;
+  background-color: transparent;
+  margin-top: -1px;
 }
 .ss .ui-tabs .ui-tabs-nav .ui-icon {
   cursor: pointer;
@@ -14486,6 +14498,10 @@ Spin {
 }
 .ss .ui-tabs .ui-tabs-nav .ui-icon-close {
   top: 1px;
+}
+.ss .ui-tabs .ui-tabs-nav .ui-tabs-tab {
+  margin-right: 0.15em;
+  border-color: #ddd;
 }
 .ss .ui-tabs .ui-tabs-nav .ui-tabs-tab:hover .ui-icon {
   display: block;
@@ -14512,6 +14528,36 @@ Spin {
 }
 .ss .ui-tabs .ui-tabs-panel .ivu-page-item-active a {
   color: #fff;
+}
+.ss .ui-tabs .fixedContainer {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  padding-right: 2px;
+  z-index: 1;
+  background-color: #fff;
+  display: none;
+}
+.ss .ui-tabs .fixedContainer .tab-arrow-left {
+  float: left;
+  width: 16px;
+  padding: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  margin: 0;
+  border-right: 0;
+  border-color: #ddd;
+}
+.ss .ui-tabs .fixedContainer .tab-arrow-right {
+  float: left;
+  width: 16px;
+  padding: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin: 0;
+  border-color: #ddd;
 }
 .ss .treeLevel {
   display: inline-block;
@@ -14838,6 +14884,17 @@ Spin {
 }
 .ss .edui-default .edui-colorpicker-nocolor {
   height: auto;
+}
+.ss .wrapper-view-img {
+  position: relative;
+}
+.ss .wrapper-view-img .view-ori-img {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 /*-------------------------------------
 zTree Style

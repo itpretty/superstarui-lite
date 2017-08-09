@@ -2,11 +2,73 @@
 let ss = {};
 window['ss'] = ss;
 
+// Extend jQueryUI Tabs
+(function ($) {
+    var settings = {
+        barheight: 34
+    }; 
+
+    $.fn.scrollabletab = function (options) {		
+        var ops = $.extend(settings, options);
+		var ul = this.children('ul').first();
+		var tabs = $(this);		
+
+        $(this).prepend('<div class="fixedContainer""></div>');
+		var $fixedContainer = $(this).find('.fixedContainer');
+		$fixedContainer.append('<div class="tab-arrow-left" style="height:' + (ops.barheight - 2) + 'px;"></div><div class="tab-arrow-right" style="height:' + (ops.barheight - 2) + 'px;"></div>');
+		var leftArrow = $(this).find('.tab-arrow-left').button({ icon: "ui-icon-triangle-1-w", showLabel: false});
+        var rightArrow = $(this).find('.tab-arrow-right').button({ icon: "ui-icon-triangle-1-e", showLabel: false});
+
+		var getFullWidth = function () {
+			var tabsRealWidth = 0;
+            ul.find('li').each(function (index, element) {
+                tabsRealWidth += $(element).outerWidth();
+                tabsRealWidth += ($(element).css('margin-right').replace('px', '') / 1);
+            });
+			return tabsRealWidth;
+		};
+		var getCurrPos = function () {
+			return ul.css('margin-left').replace('px', '') / 1;
+		};
+
+        leftArrow.click(function () {
+			var offset = tabs.width() / 6;
+            var currentPosition = getCurrPos();
+            if (currentPosition + offset >= 0) {
+                ul.stop().animate({ 'margin-left': '0' }, 'slow');
+            }
+            else {
+                ul.stop().animate({ 'margin-left': (currentPosition + offset) + 'px' }, 'slow');
+            }
+        });
+
+        rightArrow.click(function () {
+			var offset = tabs.width() / 6;
+            var currentPosition = getCurrPos();
+            if ((tabs.width() - currentPosition - 60) < getFullWidth()) {
+                ul.stop().animate({ 'margin-left': (currentPosition - offset) + 'px' }, 'slow');
+            }
+		});
+		
+		$(window).on('resize', function () {
+			if (getFullWidth() > tabs.width()) {
+				$fixedContainer.show();
+			} else {
+				$fixedContainer.hide();
+			}
+		});
+
+        return this;
+    };
+
+})(jQuery);
+
 ss.global = {
 	debug: false,
 	ajaxCount: 0,
 	currVm: null,
 	isRefreshingTab: false,
+	isMouseoverTab: false,
 	mapNameLabel: {},
 	ueditor: {
 		initialFrameHeight: 100,
@@ -164,13 +226,17 @@ ss.util = {
 			});
 		});
 		return _arr;
+	},
+	imgOnerror (img, _src) {
+		let src = ($.type(_src) != 'undefined') ? _src : ss.path.base + "static/img/img-onerror.png";
+		$(img).attr('ref', img.src);
+		img.src = src;
+		img.onerror = null;
 	}
 };
 
 ss.ui = new Vue({
-	data: {
-		
-	},
+	data: {},
 	methods: {
 		loading () {
 			this.$Message.config({
@@ -731,6 +797,10 @@ $(document).ready(function(){
 
 // 监听 hash
 ss.util.onHashChange = function() {
+	if (ss.global.isMouseoverTab == true) {
+		return false;
+	}
+
 	var _hash = window.location.hash.substr(1);
 	var $homeTabs = $('#homeTabs');
 	var $currTab = $homeTabs.find('.ui-tabs-nav a[href$="' + _hash + '"]').parent();
@@ -957,11 +1027,14 @@ if (location.href.indexOf(ss.path.base + 'login') == 0) {
 			window.requestAnimationFrame = function(fn) {
 				setTimeout(fn, 17);
 			};
-		}  
+		}
 
 		$(window).load(function(){
 			resizeCanvas();
 			render();
+			setTimeout(function(){
+				$('body').removeClass('loading');
+			}, 1500);
 		});
 
    })();
@@ -1113,7 +1186,7 @@ if (location.href.indexOf(ss.path.base + 'index') == 0) {
 						// 静默更新 hash
 						vm.urlHash(href.substr(1));
 					}
-				});
+				}).scrollabletab();
 
 				// Event: remove tab
 				vm.homeTabs.on("click", "span.ui-icon-close", function () {
@@ -1124,11 +1197,13 @@ if (location.href.indexOf(ss.path.base + 'index') == 0) {
 				})
 				// 移除 onhashchange 监听
 				.on('mouseenter', '.ui-tabs-tab', function () {							
-					$(window).on("hashchange", null);
+					//$(window).on("hashchange", null);
+					ss.global.isMouseoverTab == true;
 				})
 				// 恢复 onhashchange 监听
 				.on('mouseleave', '.ui-tabs-tab', function () {							
-					$(window).on("hashchange", ss.util.onHashChange);
+					//$(window).on("hashchange", ss.util.onHashChange);
+					ss.global.isMouseoverTab == false;
 				})
 				// Event: refresh tab
 				.on('click', '.ui-state-active .ui-icon-arrowrefresh-1-n', function () {
@@ -1145,9 +1220,12 @@ if (location.href.indexOf(ss.path.base + 'index') == 0) {
 			
 			getTabs: function(){
 				var vm = this;
-				this.tabs = (function(){
+				vm.tabs = (function(){
 					return vm.homeTabs.find('.ui-tabs-tab').length;
 				})();
+
+				vm.homeTabs.css({'visibility': ((vm.tabs > 0) ? 'visible' : 'hidden')});
+				$(window).resize();
 			},
 			
 			addTab: function(label, url){
@@ -1193,8 +1271,23 @@ if (location.href.indexOf(ss.path.base + 'index') == 0) {
 			}
 		}, // end of methods
 		domReady: function(){
-			var vm = this;
+			let vm = this;
 			vm.initTab();
+
+			vm.homeTabs.on('mouseenter', '.ivu-table-cell img', function(){
+				let $this = $(this);
+				let $parent = $this.parent();
+
+				if ($.type($this.data('entered')) != 'undefined') { return false;}
+				if ($.trim($parent.text()) != '') { return false; }
+
+				let ref = $this.attr('ref');
+				let _src = ($.type(ref) != 'undefined') ? ref : $this.attr('src');
+
+				$parent.addClass('wrapper-view-img');
+				$this.after('<a href="' + _src + '" target="_blank" class="view-ori-img" title="点击看大图"></a>');
+				$this.data('entered', 'Y');
+			});
 
 			// left menu
 			ss.ajax({

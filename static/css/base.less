@@ -68,6 +68,9 @@ Steps,Step,i-circle,Affix,Back-top,Spin
             }
         }
     }
+    img {
+        display: block;
+    }
 }
 
 .ivu-form .ivu-form-item-label{
@@ -123,6 +126,7 @@ Steps,Step,i-circle,Affix,Back-top,Spin
 
 // Index
 .ss{
+    a {transition: none;}
     .wrapper-page{height:100%;}
     .layout{
         //border: 1px solid #d7dde4;
@@ -180,6 +184,7 @@ Steps,Step,i-circle,Affix,Back-top,Spin
         background: #00386F;
         height:100%;
         width:240px;
+        overflow-y: auto;
         .ivu-menu-dark.ivu-menu-vertical .ivu-menu-item, .ivu-menu-dark.ivu-menu-vertical .ivu-menu-submenu-title
         {background: #00386F;}
         
@@ -247,10 +252,15 @@ Steps,Step,i-circle,Affix,Back-top,Spin
     
     .ui-tabs {
         height:100%;
+        overflow:hidden;
+        visibility: hidden;
         .ui-tabs-nav{
             padding:0;
             border-width:0 0 1px 0;
             border-radius: 0;
+            width: 5000px;
+            background-color: transparent;
+            margin-top:-1px;
             .ui-icon{
                 cursor: pointer;
                 position:absolute;
@@ -261,7 +271,9 @@ Steps,Step,i-circle,Affix,Back-top,Spin
             .ui-icon-close{
                 top:1px;                
             }            
-            .ui-tabs-tab{                      
+            .ui-tabs-tab{
+                margin-right:0.15em;
+                border-color:#ddd;              
                 &:hover{
                     .ui-icon{
                         display:block;
@@ -270,6 +282,7 @@ Steps,Step,i-circle,Affix,Back-top,Spin
                         display:none;        
                     }
                 }
+
             }
             .ui-tabs-active {
                 &:hover{
@@ -294,6 +307,36 @@ Steps,Step,i-circle,Affix,Back-top,Spin
             overflow-y:auto;
             .ivu-page-item-active a{
                 color:#fff;
+            }
+        }
+        .fixedContainer{
+            position:absolute;
+            top:2px;
+            right:0;
+            padding-right:2px;
+            z-index: 1;
+            background-color: #fff;
+            display:none;
+            .tab-arrow-left{
+                float:left;
+                width:16px;
+                padding:0;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+                margin:0;
+                border-right:0;
+                border-color:#ddd;
+            }
+            .tab-arrow-right{
+                float:left;
+                width:16px;
+                padding:0;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+                margin:0;
+                border-color:#ddd;
             }
         }
     }
@@ -408,5 +451,9 @@ Steps,Step,i-circle,Affix,Back-top,Spin
     }
     .edui-default .edui-colorpicker-nocolor{
         height:auto;
+    }
+    .wrapper-view-img{
+        position:relative;
+        .view-ori-img{ display:block;position:absolute;top:0;right:0;bottom:0;left:0;}
     }
 }
