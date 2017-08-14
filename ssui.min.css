@@ -9124,6 +9124,7 @@ fieldset[disabled] .ivu-btn-info > a:only-child:after {
 .ivu-radio-group {
   display: inline-block;
   font-size: 12px;
+  vertical-align: middle;
 }
 .ivu-radio-group-vertical .ivu-radio-wrapper {
   display: block;

@@ -624,6 +624,8 @@ ss.mvvm = obj => {
 							}
 						});
 						delete obj.data;
+						delete obj.code;
+						delete obj.message;
 						return obj;
 					},
 					paging: function (nowpage) {
